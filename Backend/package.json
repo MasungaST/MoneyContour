@@ -1,0 +1,15 @@
+{
+  "name": "moneycontour_server",
+  "version": "0.0.1",
+  "description": "Express.ts backend server for the MoneyContour System project",
+  "main": "server.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "MoneyContour"
+  },
+  "author": "Stephen Masunga",
+  "license": "ISC"
+}
