@@ -11,15 +11,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "MoneyContour"
+    "url": "https://github.com/MasungaST/MoneyContour.git"
   },
   "author": "Stephen Masunga",
   "license": "ISC",
   "dependencies": {
+    "apollo-server-express": "^3.13.0",
     "body-parser": "^1.20.2",
     "concurrently": "^8.2.2",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "express-graphql": "^0.12.0",
+    "graphql": "^16.8.1",
     "morgan": "^1.10.0",
     "pg": "^8.11.5",
     "pg-express": "^0.0.22"

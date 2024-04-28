@@ -2,6 +2,9 @@ import express, { Express, Request, Response } from"express";
 import dotenv from "dotenv";
 import pool from "./db";
 import bodyParser = require("body-parser");
+import schema from "./schema";
+import { graphqlHTTP } from "express-graphql";
+import resolvers from "./resolvers/resolvers";
 
 dotenv.config();
 
@@ -10,12 +13,19 @@ const port = process.env.PORT;
 
 app.use(bodyParser.json());
 
-app.get("/", (req: Request, res: Response) => {
+app.get("/", (res: Response) => {
     res.send("MoneyContour Server");
 });
 
+//Setup graphql schema
+app.use("/graphql", graphqlHTTP ({
+    schema: schema,
+    rootValue: resolvers,
+    graphiql: true
+}))
+
 //Test the database connection
-pool.connect((err, client, done) => {
+pool.connect((err) => {
     if (err) {
         console.error('Error connection to the MoneyContour database:', err);
     } else {
@@ -24,7 +34,7 @@ pool.connect((err, client, done) => {
 })
 
 app.listen(port, () => {
-    console.log(`[server]: running at https://localhost:${port}`);
+    console.log(`[server]: running at https://localhost:${port}/graphql`);
 })
 
 
