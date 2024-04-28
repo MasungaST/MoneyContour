@@ -1,0 +1,14 @@
+# Ignore Node.js modules
+/node_modules
+
+# Ignore coverage reports (if you have any)
+/coverage
+
+# Ignore Next.js build output
+.next/
+
+# Ignore production build artifacts
+/dist
+
+# Miscellaneous
+.DS_Store
