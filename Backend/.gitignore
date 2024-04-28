@@ -12,3 +12,6 @@
 
 # Miscellaneous
 .DS_Store
+
+#App Secrets
+/.env
