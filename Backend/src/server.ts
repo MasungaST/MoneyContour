@@ -1,4 +1,4 @@
-import express, { Express, Request, Response } from"express";
+import express, { Express, Response } from "express";
 import dotenv from "dotenv";
 import pool from "./db";
 import bodyParser = require("body-parser");

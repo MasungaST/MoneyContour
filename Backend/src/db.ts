@@ -12,7 +12,7 @@ const pool = new Pool({
     database: process.env.DB_NAME,
     port: parseInt(process.env.PORT || '5432'),
     connectionTimeoutMillis: 5000,
-    connectionString: process.env.DB_CONNECTION_STRING
+    connectionString: process.env.DATABASE_URL
 });
 
 export default pool;
