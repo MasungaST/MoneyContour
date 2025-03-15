@@ -1,0 +1,7 @@
+{
+  "name": "MoneyContourFrontend",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
