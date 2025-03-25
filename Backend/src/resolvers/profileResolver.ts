@@ -26,6 +26,17 @@ const ProfileResolver = {
             if (!isMatch) throw new Error("Invalid credentials");
 
             return user; // JWT can be added later
+        },
+
+        /**
+         * Retreives an array of all the Profile entities in the database
+         */
+        async getProfiles() {
+            const profiles = await profileService.getProfiles();
+
+            if (!profiles) throw new Error("Profiles not found")
+
+            return profiles;
         }
     },
 

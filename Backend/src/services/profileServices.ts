@@ -55,6 +55,19 @@ const profileService = {
         return await Profile.findOne({ where: { Email } });
     },
 
+    /**
+     * Retreives an array of all the Profile entities in the database
+     * @returns - Array of Profiles
+     */
+    getProfiles: async () => {
+        /*return [
+            { ProfileID: 1, Name: "John", Surname: "Doe", Email: "john@example.com", Password: "hashed", DateOfBirth: null, Gender: "Male", Image: null },
+            { ProfileID: 2, Name: "Jane", Surname: "Doe", Email: "jane@example.com", Password: "hashed", DateOfBirth: null, Gender: "Female", Image: null },
+          ]; */
+ 
+        return await Profile.findAll();
+    },
+
     /** 
      * =========== 
      * UPDATE 

@@ -17,6 +17,7 @@ const schema = buildSchema(`
     type Query {
         getProfile(ProfileID: ID!): Profile
         login(Email: String!, Password: String!): Profile
+        getProfiles: [Profile]
     }
 
     type Mutation {

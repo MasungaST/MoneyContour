@@ -29,14 +29,14 @@ app.use("/graphql", graphqlHTTP ({
 }));
 
 // Simple error handling
-app.use((err: any, _: Request, res: Response) => { 
+app.use((err: any, _: Request, res: Response, _next: Function) => { 
     console.error(err.stack);
     res.status(500).send('Something went wrong!');
 });
 
 // Start the server
 app.listen(port, () => {
-    console.log(`[server]: running at https://localhost:${port}/graphql`);
+    console.log(`[server]: running at http://localhost:${port}/graphql`);
 });
 
 
