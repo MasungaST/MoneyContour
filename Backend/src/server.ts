@@ -1,4 +1,4 @@
-import express, { Express, Response } from "express";
+import express, { Express, Request, Response } from "express"; // Removed express() from the import statement
 import dotenv from "dotenv";
 import bodyParser = require("body-parser");
 import schema from "./schema";
@@ -9,7 +9,6 @@ dotenv.config();
 
 const app: Express = express();
 const port = process.env.PORT || 4000;
-//const db_port = process.env.DB_PORT || 5432;
 
 app.use(bodyParser.json());
 
@@ -17,7 +16,7 @@ app.get("/", (_, res: Response) => {
     res.send("MoneyContour Server");
 });
 
-//Setup graphql schema
+// Setup GraphQL schema
 app.use("/graphql", graphqlHTTP ({
     schema: schema,
     rootValue: resolvers,
@@ -27,25 +26,17 @@ app.use("/graphql", graphqlHTTP ({
         locations: err.locations,
         stack: process.env.NODE_ENV === "development" ? err.stack : null
     })
-}))
+}));
 
-//Test the database connection
-/* pool.query('SELECT * FROM Profile')
-    .then((res) => console.log(res.rows))
-    .catch((err) => console.error('Error executing query', err.stack));
- */
-/* async function testDB() {
-    try {
-        const result = await pool.query("SELECT * FROM Profile");
-        console.log("Database connected! Sample data:", result.rows);
-    } catch (err) {
-        console.error("Error executing query", err);
-    }
-}
-testDB(); */
+// Simple error handling
+app.use((err: any, _: Request, res: Response) => { 
+    console.error(err.stack);
+    res.status(500).send('Something went wrong!');
+});
 
+// Start the server
 app.listen(port, () => {
     console.log(`[server]: running at https://localhost:${port}/graphql`);
-})
+});
 
 

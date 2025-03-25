@@ -52,7 +52,7 @@ Profile.init(
     {
         sequelize,
         modelName: 'Profile',
-        tableName: 'profiles',
+        tableName: 'Profile',
     }
 );
 

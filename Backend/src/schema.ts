@@ -1,7 +1,6 @@
 import { buildSchema } from "graphql";
 
 const schema = buildSchema(`
-    
     scalar DateTime
 
     type Profile {
@@ -21,10 +20,27 @@ const schema = buildSchema(`
     }
 
     type Mutation {
-        createProfile(Name: String!, Surname: String!, DateOfBirth: DateTime, Gender: String, Email: String!, Password: String!): Profile
+        createProfile(
+            Name: String!, 
+            Surname: String!, 
+            DateOfBirth: DateTime, 
+            Gender: String, 
+            Email: String!, 
+            Password: String!
+        ): Profile
+        
+        updateProfile(
+            ProfileID: ID!, 
+            Name: String, 
+            Surname: String, 
+            DateOfBirth: DateTime, 
+            Gender: String, 
+            Email: String, 
+            Password: String
+        ): Profile
+        
+        deleteProfile(ProfileID: ID!): Boolean
     }
 `);
 
 export default schema;
-
-
